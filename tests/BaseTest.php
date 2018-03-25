@@ -4,7 +4,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
 {
     public function testCommon()
     {
-        $gen = new \Aw\Sql\Mysql\gen();
+        $gen = new \Aw\Sql\Mysql\Gen();
         $gen->setConnection(new Aw\Db\Connection\Mysql (array(
             'host' => '127.0.0.1',
             'port' => '3306',
@@ -22,7 +22,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
     public function testWhere()
     {
-        $gen = new \Aw\Sql\Mysql\gen();
+        $gen = new \Aw\Sql\Mysql\Gen();
         $gen->setConnection(new Aw\Db\Connection\Mysql (array(
             'host' => '127.0.0.1',
             'port' => '3306',

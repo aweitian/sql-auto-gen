@@ -14,7 +14,7 @@ use Aw\Db\Connection\Mysql;
 use Aw\Db\Reflection\Mysql\Table;
 
 
-class gen
+class Gen
 
 {
     /**
