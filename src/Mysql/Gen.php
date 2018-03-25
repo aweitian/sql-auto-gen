@@ -54,7 +54,7 @@ class Gen
     /**
      * @return Crud
      */
-    public function getBuild()
+    public function getBuilder()
     {
         return $this->curd;
     }
