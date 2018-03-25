@@ -15,7 +15,6 @@ use Aw\Db\Reflection\Mysql\Table;
 
 
 class Gen
-
 {
     /**
      * @var ICache
@@ -31,6 +30,10 @@ class Gen
      */
     protected $table;
 
+    /**
+     * @var Crud
+     */
+    protected $curd;
     public function setConnection(Mysql $con)
     {
         $this->con = $con;
@@ -46,6 +49,14 @@ class Gen
     public function setCache(ICache $cache)
     {
         $this->cache = $cache;
+    }
+
+    /**
+     * @return Crud
+     */
+    public function getBuilder()
+    {
+        return $this->curd;
     }
 
     public function getColumns()
@@ -65,6 +76,7 @@ class Gen
             $where = (array)$where;
         }
         $build = new Crud($this->table);
+        $this->curd = $build;
         if (is_string($fields)) {
             if ($fields)
                 $fields = explode(',', $fields);
@@ -86,6 +98,7 @@ class Gen
     {
         $db_ref = new Table($this->table, $this->con, $this->cache);;
         $build = new Crud($this->table);
+        $this->curd = $build;
         if (is_string($fields)) {
             if ($fields)
                 $fields = explode(',', $fields);
@@ -106,6 +119,7 @@ class Gen
     {
         $db_ref = new Table($this->table, $this->con, $this->cache);;
         $build = new Crud($this->table);
+        $this->curd = $build;
         $pks = $db_ref->getPk();
         foreach ($pks as $pk) {
             $build->bindWhere($pk);
@@ -117,6 +131,7 @@ class Gen
     {
         $db_ref = new Table($this->table, $this->con, $this->cache);;
         $build = new Crud($this->table);
+        $this->curd = $build;
         if (is_string($fields)) {
             if ($fields)
                 $fields = explode(',', $fields);
